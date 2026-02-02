@@ -1,397 +1,450 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>Arbaz | Django Developer</title>
+<title>Arbaz | Developer Portfolio</title>
 
-  <!-- FONT -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-html {
-  scroll-behavior: smooth;
-}
-
-/* ================= ROOT COLORS ================= */
-:root {
-  --bg: #ffffff;
-  --text: #111;
-  --card: #f9fafb;
-  --accent: #2563eb;
-}
-
-/* DARK MODE */
-body.dark {
-  --bg: linear-gradient(135deg, #0f172a, #1e293b);
-  --text: #f1f5f9;
-  --card: #1e293b;
-}
 
 /* ================= GLOBAL ================= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Inter, sans-serif;
-  transition: 0.25s ease;
+
+html{scroll-behavior:smooth;}
+
+:root{
+  --bg:#ffffff;
+  --text:#111;
+  --card:#f9fafb;
+  --accent:#2563eb;
 }
 
-body {
-  background: var(--bg);
-  color: var(--text);
+body.dark{
+  --bg:linear-gradient(135deg,#0f172a,#1e293b);
+  --text:#f1f5f9;
+  --card:#1e293b;
 }
 
-/* every section spacing */
-section {
-  padding: 100px 10%;
-  min-height: 80vh;
-  scroll-margin-top: 80px;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Inter;
+  transition:.25s;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+}
+
+/* ================= SECTION ================= */
+
+section{
+  padding:100px 10%;
+  min-height:80vh;
 }
 
 /* ================= NAVBAR ================= */
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  padding: 18px 10%;
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  backdrop-filter: blur(14px);
-  background: rgba(255,255,255,0.65);
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-  z-index: 1000;
+.navbar{
+  position:fixed;
+  top:0;
+  width:100%;
+  padding:18px 10%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  backdrop-filter:blur(12px);
+  background:rgba(255,255,255,.7);
+  z-index:1000;
 }
 
-body.dark .navbar {
-  background: rgba(15,23,42,0.65);
+body.dark .navbar{
+  background:rgba(15,23,42,.7);
 }
 
-.navbar ul {
-  display: flex;
-  gap: 28px;
-  list-style: none;
+.navbar ul{
+  display:flex;
+  gap:24px;
+  list-style:none;
 }
 
-.navbar a {
-  text-decoration: none;
-  font-weight: 600;
-  color: var(--text);
+.navbar a{
+  text-decoration:none;
+  font-weight:600;
+  color:var(--text);
 }
 
-.navbar a:hover {
-  color: var(--accent);
+.navbar a.active{
+  color:var(--accent);
 }
 
-.mode-btn {
-  cursor: pointer;
-  border: none;
-  background: none;
-  font-size: 20px;
+.resume-btn{
+  background:var(--accent);
+  color:#fff!important;
+  padding:7px 14px;
+  border-radius:8px;
 }
 
 /* ================= HERO ================= */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
 }
 
-.hero h1 {
-  font-size: 56px;
-  font-weight: 700;
+.hero h1{
+  font-size:56px;
 }
 
-.hero p {
-  font-size: 20px;
-  opacity: 0.85;
-  margin: 15px 0;
+#typing{
+  margin-top:10px;
+  font-size:20px;
+  color:var(--accent);
+  font-weight:600;
 }
 
-/* BUTTON */
-.btn {
+/* ================= UNIVERSAL BUTTON ================= */
+.mode-btn{
+  border: none;
+  background: transparent;
+}
+.btn{
   background: var(--accent);
   color: white;
-  padding: 14px 28px;
+  padding: 12px 22px;
   border-radius: 10px;
-  text-decoration: none;
+  border: none;
+
   font-weight: 600;
-  box-shadow: 0 8px 22px rgba(37,99,235,0.4);
-}
+  cursor: pointer;
 
-.btn:hover {
-  transform: translateY(-3px);
-}
-
-/* ================= SKILLS ================= */
-.skills-wrapper {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 25px;
   justify-content: center;
-  flex-wrap: wrap;
+
+  text-decoration: none;
+
+  transition: all 0.25s ease;
+
+  box-shadow: 0 6px 14px rgba(37,99,235,0.25);
 }
 
-.skills-title {
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 2px;
+
+/* HOVER EFFECT 🔥 */
+.btn:hover{
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 12px 25px rgba(37,99,235,0.45);
 }
 
-.skills-wrapper img {
-  height: 55px;
+/* CLICK EFFECT */
+.btn:active{
+  transform: scale(0.97);
 }
+.resume-btn:hover{
+  transform:translateY(-3px) scale(1.03) ;
+  box-shadow: 0 12px 25px rgba(37, 99, 235, 0.45);
+}
+/* ================= SKILLS ================= */
+
+
+
+.skills-section{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  gap:25px;
+}
+
+.skills-title{
+  font-size:28px;
+  font-weight:700;
+}
+
+.skills-wrapper{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:18px;
+}
+
+.skills-wrapper img{
+  height:55px;
+}
+
 
 /* ================= ABOUT ================= */
-.about {
-  max-width: 750px;
-  margin: auto;
-  text-align: center;
-  line-height: 1.8;
+
+.about{
+  max-width:750px;
+  margin:auto;
+  text-align:center;
+  line-height:1.7;
 }
 
 /* ================= PROJECTS ================= */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-  gap: 25px;
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
 }
 
-.card {
-  background: var(--card);
-  padding: 25px;
-  border-radius: 12px;
-  text-decoration: none;
-  color: inherit;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+.card{
+  background:var(--card);
+  padding:18px;
+  border-radius:12px;
+  text-decoration:none;
+  color:inherit;
+  box-shadow:0 6px 18px rgba(0,0,0,.08);
+
+  opacity:0;
+  transform:translateY(25px);
 }
 
-.card:hover {
-  transform: translateY(-6px);
+.card.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.card img{
+  width:100%;
+  border-radius:8px;
+  margin-bottom:10px;
 }
 
 /* ================= CONTACT ================= */
-.contact-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
 
-.contact-form {
-  width: 100%;
-  max-width: 420px;
-
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-
-  padding: 30px;
-  border-radius: 16px;
-
-  background: var(--card);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+.contact-form{
+  max-width:420px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin:auto;
+  background:var(--card);
+  padding:25px;
+  border-radius:12px;
 }
 
 .contact-form input,
-.contact-form textarea {
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  font-size: 14px;
+.contact-form textarea{
+  padding:10px;
+  border-radius:8px;
+  border:1px solid #ddd;
 }
 
-.contact-btn {
-  background: var(--accent);
-  color: white;
-  padding: 12px;
-  border-radius: 10px;
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
+/* ================= RESUME MODAL ================= */
+
+.resume-modal{
+  position:fixed;
+  inset:0;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  background:rgba(0,0,0,.6);
+  backdrop-filter:blur(5px);
+}
+
+.resume-box{
+  width:90%;
+  max-width:900px;
+  background:var(--card);
+  padding:18px;
+  border-radius:14px;
+}
+
+.resume-viewer{
+  width:100%;
+  height:70vh;
+  border:none;
+}
+
+.resume-close{
+  float:right;
+  cursor:pointer;
 }
 
 /* ================= FOOTER ================= */
-footer {
-  text-align: center;
-  padding: 25px;
-  opacity: 0.7;
+
+footer{
+  text-align:center;
+  padding:20px;
+  opacity:.7;
 }
 
+/* ================= MOBILE ================= */
 
-/* ================================================= */
-/* ================= MOBILE RESPONSIVE 🔥 =========== */
-/* ================================================= */
-
-@media (max-width: 768px) {
-
-  section {
-    padding: 70px 6%;
-  }
-
-  /* Navbar stack */
-  .navbar {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .navbar ul {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 14px;
-  }
-
-  /* Hero */
-  .hero h1 {
-    font-size: 32px;
-  }
-
-  .hero p {
-    font-size: 16px;
-  }
-
-  /* Skills */
-  .skills-wrapper img {
-    height: 40px;
-  }
-
-  /* Projects */
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
-  /* Contact */
-  .contact-form {
-    max-width: 100%;
-  }
-
+@media(max-width:768px){
+  section{padding:70px 6%;}
+  .hero h1{font-size:32px;}
+  .navbar{flex-direction:column;gap:10px;}
 }
+
 </style>
-
 </head>
-
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
+<!-- NAVBAR -->
 <nav class="navbar">
-  <h3>ArbaJ Ali</h3>
+<h3>Arbaj Ali</h3>
 
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+<li><a href="#" id="resumeOpen" class="resume-btn">Resume</a></li>
+</ul>
 
-  <button id="modeBtn" class="mode-btn">🌙</button>
+<button id="modeBtn" class="mode-btn">🌙</button>
+
 </nav>
 
 
-<!-- ================= HERO ================= -->
+<!-- HERO -->
 <section id="home" class="hero">
-  <h1>Hi, I'm Arbaj 👋</h1>
-  <p>A software Developer</p>
-  <a href="#projects" class="btn">View Projects →</a>
+<h1>Hi, I'm Arbaj 👋</h1>
+<p id="typing"></p>
+<a href="#projects" class="btn">View Projects</a>
 </section>
 
 
-<!-- ================= SKILLS ================= -->
-
+<!-- SKILLS -->
 <section class="skills-section">
 
+  <h2 class="skills-title">Skills</h2>
+
   <div class="skills-wrapper">
-    <h3 class="skills-title">SKILLS |</h3>
-
-    <img src="https://skillicons.dev/icons?i=java,python,django,mysql,html,css,js,git,github" />
+    <img src="https://skillicons.dev/icons?i=java,python,django,mysql,html,css,js,git,github">
   </div>
 
 </section>
 
 
 
-<!-- ================= ABOUT ================= -->
+<!-- ABOUT -->
 <section id="about" class="about">
-  <h2>About Me</h2>
-
-  <p>
-    I'm a Django backend developer passionate about building scalable web
-    applications and solving real-world problems using clean architecture.
-    I enjoy APIs, databases, and backend systems.
-  </p>
+<h2>About Me</h2>
+<p>Django backend developer passionate about scalable systems and clean architecture.</p>
 </section>
 
 
-<!-- ================= PROJECTS ================= -->
+<!-- PROJECTS -->
 <section id="projects">
-  <h2>Projects</h2>
+<h2>Projects</h2>
 
-  <div class="grid">
+<div class="grid">
 
-    <a href="https://github.com/arbaj742/Airline-Management" target="_blank" class="card">
-      ✈ Airline Management System
-    </a>
+<a href="https://github.com/arbaj742/Airline-Management" target="_blank" class="card">
+<img src="./alm.png">
+<h3>Airline Management System</h3>
+</a>
 
-    <a href="https://simple-todo-list-gilt.vercel.app/" target="_blank" class="card">
-      📝 Todo List App
-    </a>
+<a href="https://simple-todo-list-gilt.vercel.app/" target="_blank" class="card">
+<img src="./tdl.png">
+<h3>Todo List App</h3>
+</a>
 
-    <a href="#home" target="_blank" class="card">
-      💰 Expense Tracker
-    </a>
+<a href="#" class="card">
+<img src="">
+<h3>Expense Tracker</h3>
+</a>
 
-  </div>
+</div>
 </section>
 
 
-<!-- ================= CONTACT ================= -->
+<!-- CONTACT -->
+<section id="contact">
+<h2 style="text-align:center">Contact Me</h2>
 
-<section id="contact" class="contact-section">
-
-  <h2>Contact Me</h2>
-
-  <form action="https://formsubmit.co/arbajali741@gmail.com" method="POST" class="contact-form">
-
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_template" value="table">
-
-    <input name="name" placeholder="Your Name" required>
-    <input name="email" type="email" placeholder="Your Email" required>
-    <textarea name="message" rows="4" placeholder="Your Message"></textarea>
-
-    <button class="contact-btn">Send Message →</button>
-
-  </form>
-
+<form action="https://formsubmit.co/arbajali741@gmail.com" method="POST" class="contact-form">
+<input type="hidden" name="_captcha" value="false">
+<input name="name" placeholder="Name" required>
+<input name="email" placeholder="Email" required>
+<textarea name="message" placeholder="Message"></textarea>
+<button class="btn">Send Message</button>
+</form>
 </section>
 
 
-
-<footer>
-  © 2025 Arbaz
-</footer>
+<footer>© 2025 Arbaz</footer>
 
 
-<!-- ================= JS ================= -->
+<!-- RESUME MODAL -->
+<div id="resumeModal" class="resume-modal">
+<div class="resume-box">
+<span id="resumeClose" class="resume-close">✕</span>
+<iframe src="resume.pdf" class="resume-viewer"></iframe>
+</div>
+</div>
+
+
 <script>
-const btn = document.getElementById("modeBtn")
 
-if(localStorage.getItem("mode")==="dark"){
-  document.body.classList.add("dark")
+/* dark mode */
+const btn=document.getElementById("modeBtn")
+btn.onclick=()=>document.body.classList.toggle("dark")
+
+/* typing animation */
+const roles=["Software Developer","Django Developer","Backend Engineer"]
+let i=0,j=0,current="",del=false
+
+function type(){
+let text=roles[i]
+
+current=del?text.slice(0,--j):text.slice(0,++j)
+document.getElementById("typing").textContent=current
+
+if(!del&&j===text.length){del=true;setTimeout(type,800);return}
+if(del&&j===0){del=false;i=(i+1)%roles.length}
+setTimeout(type,del?40:80)
+}
+type()
+
+/* navbar highlight */
+const sections=document.querySelectorAll("section")
+const links=document.querySelectorAll(".navbar a")
+
+window.onscroll=()=>{
+let current=""
+sections.forEach(sec=>{
+if(pageYOffset>=sec.offsetTop-120) current=sec.id
+})
+links.forEach(l=>{
+l.classList.remove("active")
+if(l.getAttribute("href")==="#"+current) l.classList.add("active")
+})
 }
 
-btn.onclick = () => {
-  document.body.classList.toggle("dark")
-  localStorage.setItem("mode",
-    document.body.classList.contains("dark") ? "dark" : "light")
-}
+/* scroll reveal */
+const cards=document.querySelectorAll(".card")
+window.addEventListener("scroll",()=>{
+cards.forEach(c=>{
+if(c.getBoundingClientRect().top<window.innerHeight-80)
+c.classList.add("show")
+})
+})
+
+/* resume modal */
+const openBtn=document.getElementById("resumeOpen")
+const modal=document.getElementById("resumeModal")
+const closeBtn=document.getElementById("resumeClose")
+
+openBtn.onclick=()=>modal.style.display="flex"
+closeBtn.onclick=()=>modal.style.display="none"
+window.onclick=e=>{if(e.target===modal)modal.style.display="none"}
+
 </script>
 
 </body>
