@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-  html {
+html {
   scroll-behavior: smooth;
 }
 
@@ -29,7 +29,6 @@ body.dark {
   --card: #1e293b;
 }
 
-
 /* ================= GLOBAL ================= */
 * {
   margin: 0;
@@ -42,9 +41,7 @@ body.dark {
 body {
   background: var(--bg);
   color: var(--text);
-  scroll-behavior: smooth;
 }
-
 
 /* every section spacing */
 section {
@@ -66,7 +63,6 @@ section {
 
   backdrop-filter: blur(14px);
   background: rgba(255,255,255,0.65);
-
   border-bottom: 1px solid rgba(0,0,0,0.05);
   z-index: 1000;
 }
@@ -101,19 +97,11 @@ body.dark .navbar {
 /* ================= HERO ================= */
 .hero {
   min-height: 100vh;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   text-align: center;
-  animation: fadeHero 0.8s ease;
-}
-
-@keyframes fadeHero {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 .hero h1 {
@@ -143,21 +131,6 @@ body.dark .navbar {
 }
 
 /* ================= SKILLS ================= */
-.skills-icons {
-  display: flex;
-  justify-content: center;
-}
-
-.skills-icons img {
-  max-width: 900px;
-  width: 100%;
-}
-/* ================= SKILLS ================= */
-
-.skills-section {
-  padding: 70px 10%;
-}
-
 .skills-wrapper {
   display: flex;
   align-items: center;
@@ -170,15 +143,10 @@ body.dark .navbar {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 2px;
-  opacity: 0.8;
 }
 
 .skills-wrapper img {
   height: 55px;
-}
-
-.skills-wrapper img:hover {
-  transform: scale(1.08);
 }
 
 /* ================= ABOUT ================= */
@@ -187,10 +155,6 @@ body.dark .navbar {
   margin: auto;
   text-align: center;
   line-height: 1.8;
-}
-
-.about h2 {
-  margin-bottom: 20px;
 }
 
 /* ================= PROJECTS ================= */
@@ -210,7 +174,7 @@ body.dark .navbar {
 }
 
 .card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-6px);
 }
 
 /* ================= CONTACT ================= */
@@ -222,48 +186,6 @@ body.dark .navbar {
 }
 
 .contact-form {
-  margin-top: 20px;
-  max-width: 420px;
-  width: 100%;
-
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-
-  padding: 30px;
-  border-radius: 14px;
-
-  background: var(--card);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-}
-
-input, textarea {
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-}
-
-/* ================= FOOTER ================= */
-footer {
-  text-align: center;
-  padding: 25px;
-  opacity: 0.7;
-}
-/* ================= CONTACT (UPGRADED) ================= */
-
-.contact-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.contact-section h2 {
-  margin-bottom: 25px;
-  font-size: 32px;
-}
-
-.contact-form {
   width: 100%;
   max-width: 420px;
 
@@ -271,34 +193,22 @@ footer {
   flex-direction: column;
   gap: 14px;
 
-  padding: 32px;
+  padding: 30px;
   border-radius: 16px;
 
   background: var(--card);
   box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-
-  animation: fadeUp 0.6s ease;
 }
 
 .contact-form input,
 .contact-form textarea {
-  padding: 13px;
-  border-radius: 10px;
+  padding: 12px;
+  border-radius: 8px;
   border: 1px solid #ddd;
-  background: transparent;
-  color: var(--text);
   font-size: 14px;
 }
 
-.contact-form input:focus,
-.contact-form textarea:focus {
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 2px rgba(37,99,235,0.15);
-}
-
 .contact-btn {
-  margin-top: 6px;
   background: var(--accent);
   color: white;
   padding: 12px;
@@ -308,24 +218,63 @@ footer {
   cursor: pointer;
 }
 
-.contact-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(37,99,235,0.35);
+/* ================= FOOTER ================= */
+footer {
+  text-align: center;
+  padding: 25px;
+  opacity: 0.7;
 }
 
-/* smooth animation */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
+/* ================================================= */
+/* ================= MOBILE RESPONSIVE 🔥 =========== */
+/* ================================================= */
+
+@media (max-width: 768px) {
+
+  section {
+    padding: 70px 6%;
+  }
+
+  /* Navbar stack */
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .navbar ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+  }
+
+  /* Hero */
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  /* Skills */
+  .skills-wrapper img {
+    height: 40px;
+  }
+
+  /* Projects */
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Contact */
+  .contact-form {
+    max-width: 100%;
+  }
+
+}
 </style>
+
 </head>
 
 
