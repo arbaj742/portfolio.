@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Arbaz | Django Developer</title>
+
+  <!-- FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+  html {
+  scroll-behavior: smooth;
+}
+
+/* ================= ROOT COLORS ================= */
+:root {
+  --bg: #ffffff;
+  --text: #111;
+  --card: #f9fafb;
+  --accent: #2563eb;
+}
+
+/* DARK MODE */
+body.dark {
+  --bg: linear-gradient(135deg, #0f172a, #1e293b);
+  --text: #f1f5f9;
+  --card: #1e293b;
+}
+
+
+/* ================= GLOBAL ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter, sans-serif;
+  transition: 0.25s ease;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  scroll-behavior: smooth;
+}
+
+
+/* every section spacing */
+section {
+  padding: 100px 10%;
+  min-height: 80vh;
+  scroll-margin-top: 80px;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 18px 10%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  backdrop-filter: blur(14px);
+  background: rgba(255,255,255,0.65);
+
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  z-index: 1000;
+}
+
+body.dark .navbar {
+  background: rgba(15,23,42,0.65);
+}
+
+.navbar ul {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+
+.navbar a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.navbar a:hover {
+  color: var(--accent);
+}
+
+.mode-btn {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-size: 20px;
+}
+
+/* ================= HERO ================= */
+.hero {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  animation: fadeHero 0.8s ease;
+}
+
+@keyframes fadeHero {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero h1 {
+  font-size: 56px;
+  font-weight: 700;
+}
+
+.hero p {
+  font-size: 20px;
+  opacity: 0.85;
+  margin: 15px 0;
+}
+
+/* BUTTON */
+.btn {
+  background: var(--accent);
+  color: white;
+  padding: 14px 28px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 8px 22px rgba(37,99,235,0.4);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+/* ================= SKILLS ================= */
+.skills-icons {
+  display: flex;
+  justify-content: center;
+}
+
+.skills-icons img {
+  max-width: 900px;
+  width: 100%;
+}
+/* ================= SKILLS ================= */
+
+.skills-section {
+  padding: 70px 10%;
+}
+
+.skills-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.skills-title {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  opacity: 0.8;
+}
+
+.skills-wrapper img {
+  height: 55px;
+}
+
+.skills-wrapper img:hover {
+  transform: scale(1.08);
+}
+
+/* ================= ABOUT ================= */
+.about {
+  max-width: 750px;
+  margin: auto;
+  text-align: center;
+  line-height: 1.8;
+}
+
+.about h2 {
+  margin-bottom: 20px;
+}
+
+/* ================= PROJECTS ================= */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+  gap: 25px;
+}
+
+.card {
+  background: var(--card);
+  padding: 25px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+/* ================= CONTACT ================= */
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.contact-form {
+  margin-top: 20px;
+  max-width: 420px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  padding: 30px;
+  border-radius: 14px;
+
+  background: var(--card);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+input, textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  text-align: center;
+  padding: 25px;
+  opacity: 0.7;
+}
+/* ================= CONTACT (UPGRADED) ================= */
+
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.contact-section h2 {
+  margin-bottom: 25px;
+  font-size: 32px;
+}
+
+.contact-form {
+  width: 100%;
+  max-width: 420px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  padding: 32px;
+  border-radius: 16px;
+
+  background: var(--card);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+
+  animation: fadeUp 0.6s ease;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 13px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  background: transparent;
+  color: var(--text);
+  font-size: 14px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(37,99,235,0.15);
+}
+
+.contact-btn {
+  margin-top: 6px;
+  background: var(--accent);
+  color: white;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.contact-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(37,99,235,0.35);
+}
+
+/* smooth animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar">
+  <h3>ArbaJ Ali</h3>
+
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <button id="modeBtn" class="mode-btn">🌙</button>
+</nav>
+
+
+<!-- ================= HERO ================= -->
+<section id="home" class="hero">
+  <h1>Hi, I'm Arbaj 👋</h1>
+  <p>A software Developer</p>
+  <a href="#projects" class="btn">View Projects →</a>
+</section>
+
+
+<!-- ================= SKILLS ================= -->
+
+<section class="skills-section">
+
+  <div class="skills-wrapper">
+    <h3 class="skills-title">SKILLS |</h3>
+
+    <img src="https://skillicons.dev/icons?i=java,python,django,mysql,html,css,js,git,github" />
+  </div>
+
+</section>
+
+
+
+<!-- ================= ABOUT ================= -->
+<section id="about" class="about">
+  <h2>About Me</h2>
+
+  <p>
+    I'm a Django backend developer passionate about building scalable web
+    applications and solving real-world problems using clean architecture.
+    I enjoy APIs, databases, and backend systems.
+  </p>
+</section>
+
+
+<!-- ================= PROJECTS ================= -->
+<section id="projects">
+  <h2>Projects</h2>
+
+  <div class="grid">
+
+    <a href="https://github.com/arbaj742/Airline-Management" target="_blank" class="card">
+      ✈ Airline Management System
+    </a>
+
+    <a href="https://simple-todo-list-gilt.vercel.app/" target="_blank" class="card">
+      📝 Todo List App
+    </a>
+
+    <a href="#home" target="_blank" class="card">
+      💰 Expense Tracker
+    </a>
+
+  </div>
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact" class="contact-section">
+
+  <h2>Contact Me</h2>
+
+  <form action="https://formsubmit.co/arbajali741@gmail.com" method="POST" class="contact-form">
+
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+
+    <input name="name" placeholder="Your Name" required>
+    <input name="email" type="email" placeholder="Your Email" required>
+    <textarea name="message" rows="4" placeholder="Your Message"></textarea>
+
+    <button class="contact-btn">Send Message →</button>
+
+  </form>
+
+</section>
+
+
+
+<footer>
+  © 2025 Arbaz
+</footer>
+
+
+<!-- ================= JS ================= -->
+<script>
+const btn = document.getElementById("modeBtn")
+
+if(localStorage.getItem("mode")==="dark"){
+  document.body.classList.add("dark")
+}
+
+btn.onclick = () => {
+  document.body.classList.toggle("dark")
+  localStorage.setItem("mode",
+    document.body.classList.contains("dark") ? "dark" : "light")
+}
+</script>
+
+</body>
+</html>
